@@ -1,18 +1,18 @@
 import streamlit as st
 import google.generativeai as genai
 
-with open("academic_prompt.txt", "r", encoding="utf-8") as prompt:
+with open("prompts/academic_prompt.txt", "r", encoding="utf-8") as prompt:
     system_prompt = prompt.read()
 
 # -----------------------
 # Configure Streamlit app
 # -----------------------
-st.set_page_config(page_title="Myy Chat App 🤖...app.py", layout="centered")
+st.set_page_config(page_title="EduBot 🤖", layout="centered")
 
 # Main app UI
-st.markdown("<h1 style='text-align:center;'>Foot-y AI 👾 ⚽️</h1>",unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center;'>EduBot 🧠👾</h1>",unsafe_allow_html=True)
 
-st.markdown("<h5 style='text-align:center;'>Your personal AI assistant for football insights and analysis</h5>",unsafe_allow_html=True)
+st.markdown("<h5 style='text-align:center;'>Your academic brainstorming partner — powered by AI.</h5>",unsafe_allow_html=True)
 
 st.markdown("<h5 style='text-align:center;'>Made with Streamlit by Nduoma</h5>",unsafe_allow_html=True)
 
@@ -21,8 +21,8 @@ st.markdown("<h5 style='text-align:center;'>Welcome back, Chief!😉</h5>",unsaf
 st.markdown(
     '''
     <div style='text-align:center;'>
-        <a href="https://github.com/Nduoma132/" target="_blank" style="text-decoration: none; font-weight: bold; text-align: center;">
-        🚀 Check out my GitHub projects!
+        <a href="https://github.com/Nduoma132/edu-bot" target="_blank" style="text-decoration: none; font-weight: bold; text-align: center;">
+        🚀 Check out this project on my GitHub!
         </a>
     </div>
     ''',
@@ -36,7 +36,7 @@ st.divider()
 # Sidebar UI
 # -----------------------
 with st.sidebar:
-    st.title("💬 Footy-AI by Nduoma")
+    st.title("💬 EduBot by Nduoma")
     st.header("Settings ⚙️")
     st.selectbox("Choose preferred model", ["Gemini-1.5-Flash", "Gemini-1.5-Flash-Plus", "Gemini-2.0-Flash", "Gemini-2.5-Flash"], index=0)
     
@@ -78,7 +78,7 @@ for msg in st.session_state.messages:
         st.markdown(msg["parts"])
 
 # Handle user input
-if prompt := st.chat_input("Ask your football related question ⚽..."):
+if prompt := st.chat_input("Ask EduBot 🧠..."):
 
     # Save user message
     user_msg = {"role": "user", "parts": [prompt]}
