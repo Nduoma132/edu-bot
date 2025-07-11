@@ -4,10 +4,11 @@ import google.generativeai as genai
 with open("prompts/academic_prompt.txt", "r", encoding="utf-8") as prompt:
     system_prompt = prompt.read()
 
-# -----------------------
 # Configure Streamlit app
-# -----------------------
-st.set_page_config(page_title="EduBot 🤖", layout="centered")
+st.set_page_config(
+    page_title="EduBot 🤖", 
+    layout="centered"
+)
 
 # Main app UI
 st.markdown("<h1 style='text-align:center;'>EduBot 🧠👾</h1>",unsafe_allow_html=True)
@@ -75,7 +76,7 @@ if "chat" not in st.session_state:
 # Display previous messages
 for msg in st.session_state.messages:
     with st.chat_message("user" if msg["role"] == "user" else "assistant"):
-        st.markdown(msg["parts"])
+        st.markdown(msg["parts"][0])
 
 # Handle user input
 if prompt := st.chat_input("Ask EduBot 🧠..."):
